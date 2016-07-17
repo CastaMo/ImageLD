@@ -64,7 +64,7 @@
         	runningContainer 		: []
         };
 
-        //图片加载启动的入口
+        //检查当前是否可进行Loading
         var _checkForLoading = function() {
         	//等待队列为空或加载数量达到极限时, 不执行
         	if (	_staticConfig.waitingQueue.length === 0
@@ -96,11 +96,10 @@
         }
 
         /*
-         * 静态公有方法: 懒加载
+         * 静态公有方法: 懒加载的入口
          * @param {HTMLElement} targetDom: 需要进行懒加载的DOM节点
          * @param {String} url: 需要加载的图片URL
          *
-         * 此为懒加载的入口
          */
         ImageBuffer.lazyLoading = function(targetDom, url) {
         	new ImageBuffer({
