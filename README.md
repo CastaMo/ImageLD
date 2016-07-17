@@ -1,2 +1,2 @@
 # ImageBuffer
-Apply the image to the corresponding dom when the loading is finished.
+可以控制并发加载数量的图片懒加载
