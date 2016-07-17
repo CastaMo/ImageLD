@@ -42,9 +42,9 @@
 
     // ----------------------------------------- 辅助函数 end-------------------------------------------------
 
-    var ImageBuffer;
+    var ImageLD;
 
-    ImageBuffer = (function() {
+    ImageLD = (function() {
 
 
     	/*
@@ -52,7 +52,7 @@
 		 *
 		 * 当前正在加载的数量
 		 * 最大加载数量
-		 * 该数组用于给对应的ImageBuffer提供现有的id，并且循环使用，保证互不冲突
+		 * 该数组用于给对应的ImageLD提供现有的id，并且循环使用，保证互不冲突
 		 * 等待队列，用于存放将要加载图片的对象
 		 * 运行加载的容器，为了在移除对象的阶段提高效率，这里用键值对来加快查找速率，结合上述_indexArr一起使用
     	 */
@@ -80,7 +80,7 @@
         	readyObject.readForLoading();
         }
 
-        ImageBuffer.displayName = "ImageBuffer";
+        ImageLD.displayName = "ImageLD";
 
         /*
          * 静态公有方法: 设置配置
@@ -88,7 +88,7 @@
          *
          * 通过深拷贝，扩展(替换)默认配置
          */
-        ImageBuffer.setOptions = function(options) {
+        ImageLD.setOptions = function(options) {
         	if (typeof options !== "object") {
         		return;
         	}
@@ -101,8 +101,8 @@
          * @param {String} url: 需要加载的图片URL
          *
          */
-        ImageBuffer.lazyLoading = function(targetDom, url) {
-        	new ImageBuffer({
+        ImageLD.lazyLoading = function(targetDom, url) {
+        	new ImageLD({
         		targetDom 	: 	targetDom 	|| null,
         		url 		: 	url  		|| ""
         	});
@@ -117,7 +117,7 @@
          * 1. targetDom, 目标dom。
          * 2. url, 图片的URL。
          */
-        function ImageBuffer(options) {
+        function ImageLD(options) {
         	extend(options, this);
         	_staticConfig.waitingQueue.push(this);
         	console.log(_staticConfig);
@@ -125,9 +125,9 @@
 
         }
 
-        ImageBuffer.prototype = {
+        ImageLD.prototype = {
 
-        	constructor: ImageBuffer,
+        	constructor: ImageLD,
 
         	//加载的准备工作
         	readForLoading: function() {
@@ -183,10 +183,10 @@
 
         }
 
-        return ImageBuffer;
+        return ImageLD;
     })();
 
-    win.ImageBuffer = ImageBuffer;
+    win.ImageLD = ImageLD;
 
 
  })(window, document, undefined);
