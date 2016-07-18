@@ -80,6 +80,25 @@
         	readyObject.readForLoading();
         }
 
+
+        /*
+         * 图片懒加载对象
+         *
+         * @param {Object} options: 对象配置
+         * 包含三个属性:
+         * 1. targetDom, 目标dom。
+         * 2. url, 图片的URL。
+         */
+        function ImageLD(options) {
+            extend(options, this);
+            _staticConfig.waitingQueue.push(this);
+            console.log(_staticConfig);
+            _checkForLoading();
+
+        }
+
+
+
         ImageLD.displayName = "ImageLD";
 
         /*
@@ -108,22 +127,6 @@
         	});
         }
 
-
-        /*
-         * 图片懒加载对象
-         *
-         * @param {Object} options: 对象配置
-         * 包含三个属性:
-         * 1. targetDom, 目标dom。
-         * 2. url, 图片的URL。
-         */
-        function ImageLD(options) {
-        	extend(options, this);
-        	_staticConfig.waitingQueue.push(this);
-        	console.log(_staticConfig);
-        	_checkForLoading();
-
-        }
 
         ImageLD.prototype = {
 
@@ -188,5 +191,9 @@
 
     win.ImageLD = ImageLD;
 
+    /*
+     * demo
+     */
+    //ImageLD.lazyLoading(document.getElementsByTagName('div')[0], "http://imgcache.qq.com/ac/www_tencent/zh-cn/images/sitelogo_zh-cn.gif");
 
  })(window, document, undefined);
