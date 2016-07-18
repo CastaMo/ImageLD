@@ -194,6 +194,6 @@
     /*
      * demo
      */
-    //ImageLD.lazyLoading(document.getElementsByTagName('div')[0], "http://imgcache.qq.com/ac/www_tencent/zh-cn/images/sitelogo_zh-cn.gif");
+    //ImageLD.lazyLoading(document.getElementsByTagName('div')[0], "http://img1.imgtn.bdimg.com/it/u=2906301802,2392650601&fm=21&gp=0.jpg");
 
  })(window, document, undefined);
